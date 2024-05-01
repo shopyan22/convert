@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hitung Stop Loss dan Take Profit</title>
+<style>
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+input {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Hitung Stop Loss dan Take Profit</h2>
+    <input type="number" id="inputNilai" placeholder="Masukkan nilai"><br>
+    <input type="number" id="inputStopLoss" placeholder="Masukkan Stop Loss (%)"><br>
+    <input type="number" id="inputTakeProfit" placeholder="Masukkan Take Profit (x)"><br>
+    <button onclick="hitung()">Hitung</button>
+    <p id="output"></p>
+</div>
+<script>
+function hitung() {
+    var nilai = parseFloat(document.getElementById("inputNilai").value);
+    var stopLossPercentage = parseFloat(document.getElementById("inputStopLoss").value) / 100;
+    var takeProfitMultiplier = parseFloat(document.getElementById("inputTakeProfit").value) / 100;
+
+    var stopLoss = nilai * stopLossPercentage;
+    var takeProfit = nilai * takeProfitMultiplier;
+
+    var output = "SL : " + (nilai - stopLoss).toFixed(20) + "<br>";
+    output += "TP : " + (nilai + takeProfit).toFixed(20);
+
+    document.getElementById("output").innerHTML = output;
+}
+</script>
+</body>
+</html>
