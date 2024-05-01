@@ -1,1 +1,1 @@
-# convert
+# Hitung Stop Loss dan Take Profit
